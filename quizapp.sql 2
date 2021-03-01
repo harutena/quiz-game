@@ -1,0 +1,164 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jan 29, 2021 at 06:07 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.3.22
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `quizapp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marks`
+--
+
+CREATE TABLE `marks` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `obtain` int(11) NOT NULL,
+  `total_marks` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `marks`
+--
+
+INSERT INTO `marks` (`id`, `user_id`, `subject`, `obtain`, `total_marks`) VALUES
+(1, 1, 'Computer Science', 2, 20),
+(2, 1, 'Math', 4, 20);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `questions`
+--
+
+CREATE TABLE `questions` (
+  `id` int(11) NOT NULL,
+  `question` text NOT NULL,
+  `option_A` text NOT NULL,
+  `option_B` text NOT NULL,
+  `option_C` text NOT NULL,
+  `option_D` text NOT NULL,
+  `correct` text NOT NULL,
+  `subject` text NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `revision` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `questions`
+--
+
+INSERT INTO `questions` (`id`, `question`, `option_A`, `option_B`, `option_C`, `option_D`, `correct`, `subject`, `reason`, `revision`, `name`) VALUES
+(1, 'Which of these best describes an array?', 'A data structure that shows a hierarchical behavior', 'Container of objects of similar types', ' Arrays are immutable once initialised', 'Array is not a data structure', 'Container of objects of similar types', 'Computer Science', '', '', ''),
+(2, 'How do you initialize an array in C?', 'int arr[3] = (1,2,3);', 'int arr(3) = {1,2,3};', 'int arr[3] = {1,2,3};', 'int arr(3) = (1,2,3);', 'int arr[3] = {1,2,3};', 'Computer Science', '', '', ''),
+(3, 'When does the ArrayIndexOutOfBoundsException occur?', 'Compile-time', 'Run-time', 'Not an error', 'Not an exception at all', 'Run-time', 'Computer Science', '', '', ''),
+(4, 'What is an operating system?', 'collection of programs that manages hardware resources', 'system service provider to the application programs', 'interface between the hardware and application programs', 'all of the mentioned', 'all of the mentioned', 'Computer Science', '', '', ''),
+(5, 'The OS X has ____________', 'monolithic kernel', 'hybrid kernel', 'microkernel', 'monolithic kernel with modules', 'hybrid kernel', 'Computer Science', '', '', ''),
+(6, 'What is the best case for linear search?', 'O(nlogn)', 'O(logn)', 'O(n)', 'O(1)', 'O(1)', 'Computer Science', '', '', ''),
+(7, 'What is the worst case for linear search?', 'O(nlogn)', 'O(logn)', 'O(n)', 'O(1)', 'O(n)', 'Computer Science', '', '', ''),
+(8, ' What is the worst case complexity of binary search using recursion?', 'O(nlogn)', 'O(logn)', 'O(n)', 'O(n2)', 'O(logn)', 'Computer Science', '', '', ''),
+(9, 'The reason for software bugs and failures is due to', 'Software companies', 'Software Developers', 'Both Software companies and Developers', 'All of the mentioned', 'Both Software companies and Developers', 'Computer Science', '', '', ''),
+(10, 'The physical layer is concerned with ___________', 'bit-by-bit delivery', 'process to process delivery', 'application to application delivery', 'port to port delivery', 'bit-by-bit delivery', 'Computer Science', '', '', ''),
+(11, 'What is the average of first 150 natural numbers?', '70', '70.5', '75', '75.5', '75.5', 'Math', '', '', ''),
+(12, 'If 6 men take 9 days to complete a work, how many men can complete the work in 3 days??', '2 men', '12 men', '9 men', '18 men', '18 men', 'Math', '', '', ''),
+(13, 'If 10 workers can make 10 tables in 10 days, then how many days would it take for 5 workers to make 5 tables??', '1', '5', '10', '25', '10', 'Math', '', '', ''),
+(14, 'The number of methods to find H.C.F are', '2', '4', '3', '5', '2', 'Math', '', '', ''),
+(15, 'Product of two expressions⁄H.C.F =', 'H.C.F', 'L.C.M', 'H.C.F + L.C.M', 'H.C.F × L.C.M', 'L.C.M', 'Math', '', '', ''),
+(16, 'The number should be added to complete the square of x4 + 64 is', '4x²', '16x²', '8x²', '−16x²', '16x²', 'Math', '', '', ''),
+(17, 'The locus of a point in a plane equidistant from a fixed point is known as', 'triangle', 'rectangle', 'hexagon', 'circle', 'circle', 'Math', '', '', ''),
+(18, 'Angles between 0 ° and 90 ° lies in', '2nd quadrant', '3rd quadrant', '1st quadrant', '4th quadrant', '1st quadrant', 'Math', '', '', ''),
+(19, 'The value of 240 ° into radians should be', '4π⁄3', '3π⁄4', 'π⁄4', 'π⁄6', '4π⁄3', 'Math', '', '', ''),
+(20, 'The types of frequency distribution are', '3', '4', '5', '2', '2', 'Math', '', '', ''),
+(21, 'What is 2 + 2 = ?', '2', '3', '4', '5', '2', 'Math', '', '', ''),
+(22, 'what is the sum to 10 and 2 ?', '12', '11', '13', '22', '12', 'Math', 'when we add 2 into 10 it will be 12', '', ''),
+(23, 'What is physics?', 'science', 'Math', 'Biology', 'None', 'Science', 'Physics', 'You\'re wrong', 'none', 'basic physics');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'test', 'test'),
+(2, 'test1', 'test1'),
+(3, 'hello', 'hello'),
+(4, 'hi', 'hello');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `marks`
+--
+ALTER TABLE `marks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `questions`
+--
+ALTER TABLE `questions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `marks`
+--
+ALTER TABLE `marks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `questions`
+--
+ALTER TABLE `questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
